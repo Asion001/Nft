@@ -1,7 +1,11 @@
 from brownie import nft
+import pinatapy
 from scripts.scripts import *
 import os
+
 from pinatapy import PinataPy
+
+pinata = PinataPy(os.getenv("PINATA_KEY"), os.getenv("PINATA_SECRET_KEY"))
 
 IPFS_URL = "https://ipfs.io/ipfs/"
 
@@ -42,18 +46,7 @@ def gen_metadata(list_img):
 
 
 def upload_file(path):
-    ipfs_add = os.popen(f"ipfs add --cid-version=1 {path}")
-    ipfs_cid = ipfs_add.readlines()
-    ipfs_cid = ipfs_cid[0].split()[1]
-
-    ipfs_add.close()
-
-    file_name = os.path.splitext(os.path.split(path)[1])[0]
-    ipfs_pin = os.popen(
-        f"ipfs pin remote add --service=Pinata --name {file_name} {ipfs_cid}"
-    )
-    print(ipfs_pin.readline())
-    ipfs_pin.close()
+    ipfs_cid = pinata.pin_file_to_ipfs(path)["IpfsHash"]
 
     return IPFS_URL + ipfs_cid
 
