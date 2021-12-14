@@ -34,7 +34,7 @@ def get_publish_source():
         return True
 
 
-def get_last_deploy(network_number="42"):
+def get_last_deploy(network_number="4"):
     with open("build/deployments/map.json", "r") as file:
         deploy_map = file.read()
         deploy_map = json.loads(deploy_map)

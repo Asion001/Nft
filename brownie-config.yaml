@@ -65,3 +65,5 @@ autofetch_sources: false
 dependencies:
   - OpenZeppelin/openzeppelin-contracts@4.4.0
 dev_deployment_artifacts: falset
+
+dotenv: .env

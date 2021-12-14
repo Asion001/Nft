@@ -8,7 +8,9 @@ def main():
 
 def deploy(name, symbol):
     acc = get_account()
-    contract = nft.deploy(name, symbol, {"from": acc})
+    contract = nft.deploy(
+        name, symbol, {"from": acc}, publish_source=get_publish_source()
+    )
     print(
         f'NFT "{contract.name()}({contract.symbol()}) deployed to {get_network()} network!'
     )
