@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from etherscan import Etherscan
 import requests, json, time, os
+from django.views.decorators.cache import cache_page
 
 contract = "0x3CD7c02229301529d23899BFB4e5B20764BBAEfb"
 opensea_assets_url = "https://testnets.opensea.io/assets/"
 etherscan_url = "https://rinkeby.etherscan.io/tx/"
 
 
+@cache_page(60 * 15)
 def index(request):
     def get_token_info(contract, id):
         url = "https://testnets-api.opensea.io/asset/"
@@ -18,7 +20,6 @@ def index(request):
     tokens = []
     id = 0
     answer = get_token_info(contract, id)
-
     while answer != {"success": False}:
         tokens.append(
             {
@@ -28,6 +29,7 @@ def index(request):
                 "description": answer.get("description"),
                 "traits": answer.get("traits"),
                 "image_original_url": answer.get("image_original_url"),
+                "collection": answer["collection"].get("slug"),
             }
         )
         time.sleep(0.8)
@@ -37,10 +39,11 @@ def index(request):
     return render(
         request,
         "gallery/index.html",
-        {"tokens": tokens},
+        {"tokens": tokens, "contract": contract},
     )
 
 
+@cache_page(60 * 15)
 def history(request):
     def get_transactions_info(contract):
         eth = Etherscan(
@@ -80,4 +83,8 @@ def history(request):
             }
         )
         i += 1
-    return render(request, "history/index.html", {"transactions": transactions})
+    return render(
+        request,
+        "history/index.html",
+        {"transactions": transactions, "contract": contract},
+    )
