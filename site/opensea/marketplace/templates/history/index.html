@@ -1,120 +1,126 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Roma Kmita, Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Tokens Gallery</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Roma Kmita, Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.88.1">
+  <title>Tokens Gallery</title>
 
-    <!-- Bootstrap core CSS -->
-<link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+<body>
 
-  <link href="{% static 'grid.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    
-<header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Showcase token marketplace.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="https://github.com/Asion001" class="text-white">Star on GitHub</a></li>
-            <li><a href="https://testnets.opensea.io/0xda2634968eaba66038665fb30b8a9e7905361b2c" class="text-white">OpenSea profile</a></li>
-            <li><a href="asion.desu@gmail.com" class="text-white">Email me</a></li>
-          </ul>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Showcase token marketplace.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://github.com/Asion001" class="text-white">Star on GitHub</a></li>
+              <li><a href="https://testnets.opensea.io/0xda2634968eaba66038665fb30b8a9e7905361b2c"
+                  class="text-white">OpenSea profile</a></li>
+              <li><a href="mailto: asion.desu@gmail.com" class="text-white">Email me</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="..." width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>History</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="btn navbar-toggler" href="/" role="button">Tokens</a>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="..." width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          <strong>History</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="btn navbar-toggler" href="/" role="button">Tokens</a>
+      </div>
     </div>
+  </header>
+  <div class="container overflow-auto">
+    <main>
+
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">BlockNumber</th>
+            <th scope="col">Time</th>
+            <th scope="col">Hash</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Value</th>
+            <th scope="col">confirmations</th>
+            <th scope="col">Etherscan link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tx in transactions %}
+          <tr>
+            <th scope="row">{{tx.number}}</th>
+            <td>{{tx.blockNumber}}</td>
+            <td>{{tx.timeStamp}}</td>
+            <td>{{tx.hash}}</td>
+            <td>{{tx.from}}</td>
+            <td>{{tx.to}}</td>
+            <td>{{tx.value}}</td>
+            <td>{{tx.confirmations}}</td>
+            <td><a class="btn btn-dark" href="{{tx.link}}" role="button">Link</a></td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </main>
   </div>
-</header>
-<div class="container overflow-auto">
-<main>
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1"></p>
+      <p class="mb-0"></a>.</p>
+    </div>
+  </footer>
 
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">BlockNumber</th>
-      <th scope="col">Time</th>
-      <th scope="col">Hash</th>
-      <th scope="col">From</th>
-      <th scope="col">To</th>
-      <th scope="col">Value</th>
-      <th scope="col">confirmations</th>
-      <th scope="col">Etherscan link</th>
-    </tr>
-  </thead>
-  <tbody>
-{% for tx in transactions %}
-    <tr>
-      <th scope="row">{{tx.number}}</th>
-      <td>{{tx.blockNumber}}</td>
-      <td>{{tx.timeStamp}}</td>
-      <td>{{tx.hash}}</td>
-      <td>{{tx.from}}</td>
-      <td>{{tx.to}}</td>
-      <td>{{tx.value}}</td>
-      <td>{{tx.confirmations}}</td>
-      <td><a class="btn btn-dark" href="{{tx.link}}" role="button">Link</a></td>
 
-    </tr>
-{% endfor %}
-  </tbody>
-</table>
+</body>
 
-</main>
-</div>
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1"></p>
-    <p class="mb-0"></a>.</p>
-  </div>
-</footer>
-
-    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
-      
-  </body>
 </html>

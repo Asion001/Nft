@@ -50,7 +50,7 @@
               <li><a href="https://github.com/Asion001" class="text-white">Star on GitHub</a></li>
               <li><a href="https://testnets.opensea.io/0xda2634968eaba66038665fb30b8a9e7905361b2c"
                   class="text-white">OpenSea profile</a></li>
-              <li><a href="asion.desu@gmail.com" class="text-white">Email me</a></li>
+              <li><a href="mailto: asion.desu@gmail.com" class="text-white">Email me</a></li>
             </ul>
           </div>
         </div>
@@ -76,28 +76,23 @@
       </div>
 
     </div>
-
   </header>
-
   <main>
-
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Tokens</h1>
           <p class="lead text-muted"></p>
           <p>
-            <a href="https://testnets.opensea.io/collection/goku-wallpapers-v2" class="btn btn-primary my-2">Colection
+            <a href="https://testnets.opensea.io/collection/{{tokens.0.collection}}"
+              class="btn btn-primary my-2">Colection
               on OpenSea</a>
-            <a href="https://rinkeby.etherscan.io/address/0x9c88c9257e0deb48feb0d1f3d851a7374e0445ac"
-              class="btn btn-secondary my-2">Contract on Etherscan</a>
+            <a href="https://rinkeby.etherscan.io/address/{{contract}}" class="btn btn-secondary my-2">Contract on
+              Etherscan</a>
           </p>
         </div>
       </div>
-
     </section>
-
-
     <div class="album py-5 bg-light">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -110,7 +105,6 @@
                 <source srcset="{{token.image_original_url}}" type="image/svg+xml">
                 <img src="{{token.image_original_url}}" class="img-fluid img-thumbnail">
               </picture>
-
               <div class="card-body">
                 <p class="card-text">{{ token.name }}</p>
                 <div class="d-flex justify-content-between align-items-center">
@@ -136,14 +130,9 @@
                     </div>
                   </div>
                 </div>
-
-
               </div>
-
             </div>
-
           </div> <!-- IMG card end -->
-
           {% endfor %}
 
         </div>
@@ -160,9 +149,6 @@
       <p class="mb-0"></a>.</p>
     </div>
   </footer>
-
-
-
 </body>
 
 </html>
