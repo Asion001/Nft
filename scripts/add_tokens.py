@@ -13,6 +13,10 @@ METADATA_TEMPLATE = {
     "name": "",
     "description": os.getenv("TOKEN_DESC"),
     "image": "",
+    "attributes": [
+        {"trait_type": "Width", "value": 2227},
+        {"trait_type": "Height", "value": 4821},
+    ],
 }
 
 

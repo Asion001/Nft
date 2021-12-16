@@ -2,7 +2,9 @@ from django.shortcuts import render
 from etherscan import Etherscan
 import requests, json, time, os
 
-contract = "0x9c88c9257E0dEb48FeB0D1f3d851a7374e0445Ac"
+contract = "0x3CD7c02229301529d23899BFB4e5B20764BBAEfb"
+opensea_assets_url = "https://testnets.opensea.io/assets/"
+etherscan_url = "https://rinkeby.etherscan.io/tx/"
 
 
 def index(request):
@@ -22,13 +24,13 @@ def index(request):
             {
                 "id": str(id),
                 "name": answer.get("name"),
-                "url": "https://testnets.opensea.io/assets/0x9c88c9257E0dEb48FeB0D1f3d851a7374e0445Ac/"
-                + str(id),
+                "url": f"{opensea_assets_url}{contract}/{id}",
                 "description": answer.get("description"),
+                "traits": answer.get("traits"),
                 "image_original_url": answer.get("image_original_url"),
             }
         )
-        time.sleep(1)
+        time.sleep(0.8)
         id += 1
         answer = get_token_info(contract, id)
 
@@ -74,7 +76,7 @@ def history(request):
                 "to": tx.get("to"),
                 "value": tx.get("value"),
                 "confirmations": tx.get("confirmations"),
-                "link": "https://rinkeby.etherscan.io/tx/" + tx.get("hash"),
+                "link": etherscan_url + tx.get("hash"),
             }
         )
         i += 1
