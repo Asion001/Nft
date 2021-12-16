@@ -1,5 +1,10 @@
-from brownie import accounts, network, Wei, project
-import os, json
+from brownie import accounts, network, Wei
+import os, json, shutil, glob
+from pinatapy import PinataPy
+
+pinata = PinataPy(os.getenv("PINATA_KEY"), os.getenv("PINATA_SECRET_KEY"))
+
+IPFS_URL = "https://ipfs.io/ipfs/"
 
 development_networks = ["development"]
 
@@ -39,3 +44,36 @@ def get_last_deploy(network_number="4"):
         deploy_map = file.read()
         deploy_map = json.loads(deploy_map)
         return deploy_map[network_number]["nft"][-1]
+
+
+def upload_file(path):
+    ipfs_cid = pinata.pin_file_to_ipfs(path)["IpfsHash"]
+
+    return IPFS_URL + ipfs_cid
+
+
+def ls_only_files(path):
+    return [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+
+
+def copy_files_to_subdirectory(path):
+    try:
+        os.mkdir(path + "copy/")
+    except FileExistsError:
+        pass
+    files = ls_only_files(path)
+    i = 0
+    for file in files:
+        shutil.copy(path + file, path + "upload/" + str(i))
+        i += 1
+
+
+def upload_dir(path):
+    ipfs_cid = pinata.pin_file_to_ipfs(path, {"wrapWithDirectory": "true"})["IpfsHash"]
+
+    return IPFS_URL + ipfs_cid
+
+
+def rm_files_in_dir(files):
+    for file in files:
+        os.remove(file)
